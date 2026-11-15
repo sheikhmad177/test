@@ -13,7 +13,6 @@
       --ws-bg: #111318;
       --app-bg: #faf8f5;
       --surface: #ffffff;
-      --surface-alt: #f3efe9;
       --ink: #14110e;
       --ink-2: #5c564f;
       --ink-3: #8c857b;
@@ -59,6 +58,10 @@
     .sync-pill {
       font-size: 11px; color: #6ee7b7; background: rgba(16,185,129,.12);
       border: 1px solid rgba(16,185,129,.3); padding: 4px 10px; border-radius: 20px;
+    }
+    .live-pill {
+      font-size: 11px; color: #e9cfa6; background: rgba(180,142,85,.14);
+      border: 1px solid rgba(180,142,85,.35); padding: 4px 10px; border-radius: 20px;
     }
     .tabs { display: flex; gap: 6px; flex-wrap: wrap; margin-left: auto; }
     .tab {
@@ -150,8 +153,7 @@
     }
     @media (max-width: 820px) {
       .hero-section { grid-template-columns: 1fr; padding: 32px 0 44px; gap: 32px; text-align: center; }
-      .hero-actions { justify-content: center; }
-      .hero-stats { justify-content: center; }
+      .hero-actions, .hero-stats { justify-content: center; }
     }
     .hero-eyebrow {
       display: inline-block; font-size: 11px; font-weight: 600; letter-spacing: 2.5px;
@@ -188,17 +190,13 @@
     .stat-num { font-family: var(--serif); font-size: 22px; font-weight: 700; color: var(--ink); }
     .stat-label { font-size: 11.5px; color: var(--ink-3); text-transform: uppercase; letter-spacing: 1px; margin-top: 2px; }
 
-    .hero-visual {
-      position: relative; display: flex; justify-content: center;
-    }
+    .hero-visual { position: relative; display: flex; justify-content: center; }
     .hero-card {
       position: relative; width: 100%; max-width: 420px; border-radius: 20px;
       overflow: hidden; background: #14110e; box-shadow: 0 28px 60px rgba(20,17,14,.18);
       border: 1px solid rgba(180,142,85,.35);
     }
-    .hero-card img {
-      width: 100%; height: 440px; object-fit: cover; display: block;
-    }
+    .hero-card img { width: 100%; height: 440px; object-fit: cover; display: block; }
     .hero-card-badge {
       position: absolute; bottom: 18px; left: 18px; right: 18px;
       background: rgba(20, 17, 14, 0.86); backdrop-filter: blur(10px);
@@ -210,7 +208,6 @@
     .hcb-sub { font-size: 11.5px; color: var(--gold-soft); margin-top: 2px; }
     .hcb-price { font-family: var(--serif); font-size: 22px; font-weight: 700; color: var(--gold-soft); }
 
-    /* Features Strip */
     .features-strip {
       display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
       gap: 24px; padding: 40px 0; border-bottom: 1px solid var(--line);
@@ -288,9 +285,7 @@
     .btn-card-pri:hover { background: var(--gold-dark); }
 
     /* ---------------- Product Detail View ---------------- */
-    .detail-wrap {
-      padding: 36px 0;
-    }
+    .detail-wrap { padding: 36px 0; }
     .back-link {
       display: inline-flex; align-items: center; gap: 6px;
       background: none; border: none; color: var(--ink-2); font-size: 13.5px;
@@ -309,7 +304,7 @@
     .p-meta li { font-size: 13.5px; color: var(--ink-2); padding-left: 20px; position: relative; }
     .p-meta li::before { content: '✦'; position: absolute; left: 0; color: var(--gold-dark); font-size: 12px; top: 1px; }
 
-    /* ---------------- Checkout Container (Cart / Delivery / Payment / Done) ---------------- */
+    /* ---------------- Checkout Container ---------------- */
     .checkout-container {
       max-width: 660px; margin: 36px auto 0;
       background: var(--surface); border: 1px solid var(--line);
@@ -394,6 +389,12 @@
       transition: .15s; margin-top: 18px;
     }
     .btn-primary:hover { background: var(--gold-dark); }
+    .btn-ghost {
+      padding: 10px 16px; border-radius: 9px; border: 1px solid rgba(255,255,255,.2); background: transparent;
+      color: #e7e3db; font-size: 13px; font-weight: 500; cursor: pointer; transition: .15s;
+    }
+    .btn-ghost:hover { border-color: rgba(255,255,255,.45); background: rgba(255,255,255,.06); }
+    .btn-ghost.danger { border-color: rgba(214,40,40,.5); color: #f0a0a0; }
 
     .confirm { text-align: center; padding: 16px 0; }
     .check-circle {
@@ -408,7 +409,7 @@
       border: 1px solid #ffc9c9; font-size: 12.5px; font-weight: 600; padding: 8px 14px; border-radius: 9px; margin-bottom: 18px;
     }
     .receipt { text-align: left; background: var(--app-bg); border: 1px solid var(--line); border-radius: 12px; padding: 8px 18px; margin-bottom: 16px; }
-    .confirm-meta { font-size: 12px; color: var(--ink-3); }
+    .confirm-meta { font-size: 12px; color: var(--ink-3); line-height: 1.6; }
 
     /* ---------------- Footer ---------------- */
     .site-footer {
@@ -425,11 +426,11 @@
     .telemetry { max-width: 1180px; margin: 0 auto; }
     .tele-head { display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 16px; margin-bottom: 22px; }
     .tele-head h2 { font-family: var(--serif); font-size: 26px; font-weight: 600; margin: 0 0 4px; }
-    .tele-sub { font-size: 13px; color: #9aa0aa; margin: 0; max-width: 600px; line-height: 1.5; }
+    .tele-sub { font-size: 13px; color: #9aa0aa; margin: 0; max-width: 640px; line-height: 1.5; }
     .tele-actions { display: flex; gap: 10px; }
     .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 14px; margin-bottom: 26px; }
     .card { background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.09); border-radius: 13px; padding: 18px 20px; }
-    .card-v { font-family: var(--serif); font-size: 30px; font-weight: 600; color: #f4f0e9; }
+    .card-v { font-family: var(--serif); font-size: 28px; font-weight: 600; color: #f4f0e9; }
     .card-l { font-size: 11px; color: #9aa0aa; letter-spacing: .5px; margin-top: 4px; text-transform: uppercase; }
     .card-warn { border-color: rgba(214,40,40,.5); background: rgba(214,40,40,.1); }
     .card-warn .card-v { color: #f3a5a5; }
@@ -482,7 +483,7 @@
         id: 'alt2',
         name: 'SOOVEŔ Velvet Royale',
         subtitle: 'Inspired by Good Girl · 30 ml',
-        tag: ' Collector’s Reserve',
+        tag: 'Collector’s Reserve',
         price: 100,
         img: 'alt2.jpg',
         remoteImg: 'https:' + '//www.designarena.ai/u/a2926828-7ef3-41c9-aab5-d8fc0fad893c',
@@ -496,7 +497,6 @@
       giftBoxFee: 80,
       platformFee: 25,
       budget: 200,
-      urgencyStart: 170,
       customer: {
         name: 'Tanvir Ahmed',
         address: 'House 14, Road 7, Dhanmondi, Dhaka',
@@ -505,8 +505,24 @@
     };
 
     /* ============================ STATE & GOOGLE SHEETS ============================ */
-    var STORAGE_KEY = 'soover_p1_telemetry_v2';
-    var SHEET_URL = 'https:' + '//script.google.com/macros/s/AKfycbw7sMkpo8oV8aIkt_Hk-g-eAgkEuwDJE57Y-i0ZHFOP10raZha6jr3t52RCQ7Q2X_63jQ/exec';
+    var STORAGE_KEY = 'soover_p1_orders_v3';
+    var DEVICE_KEY  = 'soover_p1_device_id';
+    var SESSION_KEY = 'soover_p1_active_session';
+    var SHEET_URL   = 'https:' + '//script.google.com/macros/s/AKfycbw7sMkpo8oV8aIkt_Hk-g-eAgkEuwDJE57Y-i0ZHFOP10raZha6jr3t52RCQ7Q2X_63jQ/exec';
+
+    // 1. Persistent Device ID (1 Device = 1 Fixed ID even after page reload)
+    var deviceId = '';
+    try {
+      deviceId = localStorage.getItem(DEVICE_KEY) || '';
+      if(!deviceId){
+        deviceId = 'DEV-' + Math.random().toString(36).slice(2, 8).toUpperCase();
+        localStorage.setItem(DEVICE_KEY, deviceId);
+      }
+    } catch(e) {
+      deviceId = 'DEV-' + Math.random().toString(36).slice(2, 8).toUpperCase();
+    }
+
+    // 2. Completed Orders List (1 Row per Completed Order)
     var telemetry = [];
     try { telemetry = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]'); } catch(e) {}
 
@@ -522,7 +538,6 @@
         return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];
       });
     }
-    function uid(){ return 's' + Math.random().toString(36).slice(2,8); }
     function getProduct(id){
       for(var i=0; i<PRODUCTS.length; i++){
         if(PRODUCTS[i].id === id) return PRODUCTS[i];
@@ -530,20 +545,37 @@
       return PRODUCTS[0];
     }
 
-    function log(s, screen, action, detail){
-      var elapsedSec = s.startedAt ? Math.round((Date.now() - s.startedAt) / 1000) : 0;
+    function saveActiveSession(s){
+      try { sessionStorage.setItem(SESSION_KEY, JSON.stringify(s)); } catch(e) {}
+    }
+
+    // Sends ONLY 1 summary row to Google Sheets when an order is completed
+    function recordCompletedOrder(s){
+      if(s.orderSubmitted) return; // Prevents duplicate row from the same order
+      s.orderSubmitted = true;
+
+      var t = totals(s);
+      var elapsedSec = s.startedAt ? Math.max(1, Math.round((Date.now() - s.startedAt) / 1000)) : 1;
+      var budgetStatus = t.total > CONFIG.budget ? 'EXCEEDED' : 'WITHIN';
+
+      // Mapped to the 8 columns of your existing Google Apps Script:
+      // [Timestamp, Device_ID, Group, Product, Final_Bill, Total_Clicks, Time_Sec, Wrong_Clicks]
       var entry = {
         t: new Date().toISOString(),
         sessionId: s.id,
         group: s.prototype,
-        screen: screen,
-        action: action,
-        detail: detail,
+        screen: t.prod.name + ' (' + fmt(t.item) + ')',
+        action: 'Final = ' + fmt(t.total) + ' (' + budgetStatus + ')',
+        detail: 'Clicks: ' + (s.totalClicks || 1) + ' | GiftBox: ' + (s.giftBox ? 'ON' : 'OFF'),
         elapsedSec: elapsedSec,
-        misclicks: s.misclicks || 0
+        misclicks: s.misclicks || 0,
+        totalClicks: s.totalClicks || 1
       };
+
       telemetry.push(entry);
       try { localStorage.setItem(STORAGE_KEY, JSON.stringify(telemetry)); } catch(e) {}
+      saveActiveSession(s);
+
       if (SHEET_URL && typeof fetch === 'function') {
         fetch(SHEET_URL, {
           method: 'POST',
@@ -554,55 +586,54 @@
       }
     }
 
-    /*
-      Screen numbers:
-      0 = Home Page
-      1 = Shop Page (3 Perfumes: ৳50, ৳75, ৳100)
-      6 = Product Detail Page
-      2 = Cart Screen
-      3 = Delivery Screen
-      4 = Payment & Review Screen
-      5 = Order Confirmation Screen
-    */
     function createSession(prototype){
+      try {
+        var saved = sessionStorage.getItem(SESSION_KEY);
+        if(saved){
+          var parsed = JSON.parse(saved);
+          if(parsed && parsed.prototype === prototype) return parsed;
+        }
+      } catch(e) {}
+
       return {
-        id: uid(),
+        id: deviceId,
         prototype: prototype,
-        screen: 0, // Starts on Home Page
+        screen: 0,
         selectedProductId: 'hero',
         giftBox: false,
         customer: { name: CONFIG.customer.name, address: CONFIG.customer.address, phone: CONFIG.customer.phone },
         startedAt: Date.now(),
-        misclicks: 0
+        totalClicks: 0,
+        misclicks: 0,
+        orderSubmitted: false
       };
     }
 
     function ensureSession(p){
       if(!sessions[p]){
         sessions[p] = createSession(p);
-        log(sessions[p], 'Home', 'session_start', 'Prototype ' + p + ' session started on Home page');
+        saveActiveSession(sessions[p]);
       }
       return sessions[p];
     }
 
-    function go(s, screen, label){
-      if(s.screen !== screen){
-        s.screen = screen;
-        log(s, label || String(screen), 'screen_view', 'Viewed ' + (label || 'screen ' + screen));
-      }
+    function go(s, screen){
+      s.screen = screen;
+      saveActiveSession(s);
       render();
       if(typeof window !== 'undefined' && window.scrollTo) window.scrollTo(0, 0);
     }
 
     function startNewSession(s){
-      s.id = uid();
       s.screen = 0;
       s.selectedProductId = 'hero';
       s.giftBox = false;
       s.customer = { name: CONFIG.customer.name, address: CONFIG.customer.address, phone: CONFIG.customer.phone };
       s.startedAt = Date.now();
+      s.totalClicks = 0;
       s.misclicks = 0;
-      log(s, 'Home', 'session_start', 'New session started');
+      s.orderSubmitted = false;
+      saveActiveSession(s);
       render();
     }
 
@@ -804,6 +835,7 @@
     function confirmationHTML(s){
       var t = totals(s);
       var exceeded = t.total > CONFIG.budget;
+      var elapsedSec = s.startedAt ? Math.max(1, Math.round((Date.now() - s.startedAt) / 1000)) : 1;
       var warn = (inspectorOn && exceeded) ? '<div class="budget-warn">⚠ Budget Exceeded — ' + fmt(CONFIG.budget) + ' limit</div>' : '';
       return '<div class="checkout-container">'
         + stepperHTML(s)
@@ -818,8 +850,8 @@
         + '<div class="line"><span>Inside Dhaka Delivery</span><span>' + fmt(t.delivery) + '</span></div>'
         + '<div class="line total-line"><span>Amount Charged</span><span>' + fmt(t.total) + '</span></div>'
         + '</div>'
-        + '<div class="confirm-meta">Order #SOOVER-' + s.id.toUpperCase().slice(0,6) + ' · ' + esc(s.customer.name) + '</div>'
-        + '<button class="btn-primary" data-action="startNewSession">Start New Session</button>'
+        + '<div class="confirm-meta">Device ID: <b>' + esc(s.id) + '</b> · Customer: ' + esc(s.customer.name) + '<br/>Time Taken: <b>' + elapsedSec + 's</b> · Total Clicks: <b>' + (s.totalClicks || 1) + '</b> · Wrong Clicks: <b>' + (s.misclicks || 0) + '</b></div>'
+        + '<button class="btn-primary" data-action="startNewSession">Start New Order</button>'
         + '</div></div>';
     }
 
@@ -876,10 +908,11 @@
         + '<header class="toolbar">'
         + '<div class="brand"><div class="brand-mark">SO</div>'
         + '<div><div class="brand-name">SOOVEŔ</div><div class="brand-sub">HCI Control Storefront</div></div></div>'
-        + '<span class="sync-pill">● Google Sheets Live Sync</span>'
+        + '<span class="sync-pill">● 1 Order = 1 Sheet Row</span>'
+        + '<span class="live-pill">Device: ' + esc(s.id) + ' · Clicks: ' + (s.totalClicks || 0) + ' · Wrong: ' + (s.misclicks || 0) + '</span>'
         + '<nav class="tabs">'
         + '<button class="tab ' + (view==='A'?'active':'') + '" data-view="A">Prototype 1 (Live Store)</button>'
-        + '<button class="tab ' + (view==='telemetry'?'active':'') + '" data-view="telemetry">Researcher Telemetry Log (' + telemetry.length + ')</button>'
+        + '<button class="tab ' + (view==='telemetry'?'active':'') + '" data-view="telemetry">Completed Orders Log (' + telemetry.length + ')</button>'
         + '</nav>'
         + '<div class="inspector"><span class="inspector-label">Participant Mode</span>'
         + '<button class="switch ' + (inspectorOn?'on':'') + '" data-action="toggleInspector"><span class="knob"></span></button>'
@@ -897,41 +930,43 @@
 
     /* ============================ TELEMETRY LOG ============================ */
     function telemetryHTML(){
-      var comps = telemetry.filter(function(e){ return e.action === 'complete_order'; });
-      var exceeded = comps.filter(function(e){ return e.detail.indexOf('EXCEEDED') > -1; }).length;
-      var sessionsCount = telemetry.filter(function(e){ return e.action === 'session_start'; }).length;
-      var aComp = comps.filter(function(e){ return e.group === 'A'; });
-      function avg(arr){
+      var exceeded = telemetry.filter(function(e){ return e.action && e.action.indexOf('EXCEEDED') > -1; }).length;
+      function avgBill(arr){
         if(!arr.length) return '—';
         var sum = arr.reduce(function(a,e){
-          var m = e.detail.match(/Final\s*=\s*৳(\d+)/); return a + (m ? parseInt(m[1],10) : 0);
+          var m = (e.action || '').match(/Final\s*=\s*৳(\d+)/); return a + (m ? parseInt(m[1],10) : 0);
         },0);
         return fmt(Math.round(sum/arr.length));
+      }
+      function avgTime(arr){
+        if(!arr.length) return '—';
+        var sum = arr.reduce(function(a,e){ return a + (Number(e.elapsedSec) || 0); }, 0);
+        return Math.round(sum / arr.length) + 's';
       }
       var rows = telemetry.slice().reverse().map(function(e){
         return '<tr><td class="mono">' + e.t + '</td>'
           + '<td class="mono">' + esc(e.sessionId || '—') + '</td>'
-          + '<td><span class="grp">' + e.group + '</span></td>'
+          + '<td><span class="grp">' + esc(e.group) + '</span></td>'
           + '<td>' + esc(e.screen) + '</td>'
           + '<td class="mono">' + esc(e.action) + '</td>'
           + '<td>' + esc(e.detail) + '</td>'
-          + '<td class="mono">' + (e.elapsedSec || 0) + 's</td>'
-          + '<td class="mono">' + (e.misclicks || 0) + '</td></tr>';
+          + '<td class="mono"><b>' + (e.elapsedSec || 0) + 's</b></td>'
+          + '<td class="mono"><b>' + (e.misclicks || 0) + '</b></td></tr>';
       }).join('');
       return '<div class="telemetry-wrap"><div class="telemetry">'
-        + '<div class="tele-head"><div><h2>Researcher Telemetry Log</h2>'
-        + '<p class="tele-sub">Every participant action is automatically sent to your Google Sheet (SOOVER HCI Data) and backed up in localStorage.</p></div>'
+        + '<div class="tele-head"><div><h2>Completed Orders Telemetry Log (1 Row Per Order)</h2>'
+        + '<p class="tele-sub">Only completed orders are sent to your Google Sheet (SOOVER HCI Data) — 1 row per order with Device ID, Total Clicks, Time (Sec), and Wrong Clicks.</p></div>'
         + '<div class="tele-actions"><button class="btn-ghost" data-action="exportCsv">⬇ Export CSV</button>'
         + '<button class="btn-ghost danger" data-action="clearLog">Clear Log</button></div></div>'
         + '<div class="cards">'
-        + '<div class="card"><div class="card-v">' + sessionsCount + '</div><div class="card-l">Sessions</div></div>'
-        + '<div class="card"><div class="card-v">' + comps.length + '</div><div class="card-l">Completed Orders</div></div>'
+        + '<div class="card"><div class="card-v">' + telemetry.length + '</div><div class="card-l">Completed Orders</div></div>'
+        + '<div class="card"><div class="card-v">' + avgTime(telemetry) + '</div><div class="card-l">Avg Completion Time</div></div>'
         + '<div class="card ' + (exceeded?'card-warn':'') + '"><div class="card-v">' + exceeded + '</div><div class="card-l">Budget Exceeded (&gt;' + fmt(CONFIG.budget) + ')</div></div>'
-        + '<div class="card"><div class="card-v">' + avg(aComp) + '</div><div class="card-l">Avg Order Total</div></div>'
+        + '<div class="card"><div class="card-v">' + avgBill(telemetry) + '</div><div class="card-l">Avg Order Total</div></div>'
         + '</div>'
         + '<div class="table-wrap"><table class="tele-table"><thead><tr>'
-        + '<th>Timestamp</th><th>Session</th><th>Group</th><th>Screen</th><th>Event</th><th>Detail</th><th>Time</th><th>Misclicks</th></tr></thead><tbody>'
-        + (rows || '<tr><td colspan="8" class="empty">No events recorded yet. Explore the store to populate this log.</td></tr>')
+        + '<th>Timestamp</th><th>Device_ID</th><th>Group</th><th>Product</th><th>Final_Bill</th><th>Total_Clicks &amp; Addon</th><th>Time_Sec</th><th>Wrong_Clicks</th></tr></thead><tbody>'
+        + (rows || '<tr><td colspan="8" class="empty">No completed orders yet. Complete an order to log 1 summary row.</td></tr>')
         + '</tbody></table></div></div></div>';
     }
 
@@ -940,7 +975,7 @@
       return /[",\n]/.test(v) ? '"' + v.replace(/"/g,'""') + '"' : v;
     }
     function exportCsv(){
-      var header = ['Timestamp','Session_ID','Group','Screen','Event','Detail','Elapsed_Sec','Misclicks'];
+      var header = ['Timestamp','Device_ID','Group','Product','Final_Bill','Total_Clicks_Detail','Time_Sec','Wrong_Clicks'];
       var lines = [header].concat(telemetry.map(function(e){
         return [e.t, e.sessionId || '', e.group, e.screen, e.action, e.detail, e.elapsedSec || 0, e.misclicks || 0];
       }));
@@ -948,7 +983,7 @@
       var blob = new Blob(['\uFEFF' + csv], { type:'text/csv;charset=utf-8;' });
       var url = URL.createObjectURL(blob);
       var a = document.createElement('a');
-      a.href = url; a.download = 'soover-prototype-1-telemetry.csv';
+      a.href = url; a.download = 'soover-orders-telemetry.csv';
       document.body.appendChild(a); a.click(); document.body.removeChild(a);
       URL.revokeObjectURL(url);
     }
@@ -957,6 +992,13 @@
     function handleAction(action, el){
       var s = ensureSession('A');
       var prodId = el.dataset && el.dataset.product ? el.dataset.product : null;
+
+      // Count valid action clicks during an active shopping session
+      if(s.screen !== 5 && ['toggleInspector','exitBlind','exportCsv','clearLog'].indexOf(action) === -1){
+        s.totalClicks = (s.totalClicks || 0) + 1;
+        saveActiveSession(s);
+      }
+
       switch(action){
         case 'toggleInspector':
           blind = !blind; inspectorOn = !blind;
@@ -970,41 +1012,30 @@
           try { localStorage.removeItem(STORAGE_KEY); } catch(e) {}
           render(); break;
         case 'goHome':
-          go(s, 0, 'Home'); break;
+          go(s, 0); break;
         case 'goShop':
-          log(s, 'Shop', 'open_shop', 'Opened Shop catalog (৳50, ৳75, ৳100)');
-          go(s, 1, 'Shop'); break;
+          go(s, 1); break;
         case 'goCart':
-          go(s, 2, 'Cart'); break;
+          go(s, 2); break;
         case 'viewProduct':
           if(prodId) s.selectedProductId = prodId;
-          var vp = getProduct(s.selectedProductId);
-          log(s, 'Product', 'view_product', 'Viewed ' + vp.name + ' (' + fmt(vp.price) + ')');
-          go(s, 6, 'Product_Detail'); break;
+          go(s, 6); break;
         case 'buyProduct':
           if(prodId) s.selectedProductId = prodId;
-          var bp = getProduct(s.selectedProductId);
-          log(s, 'Shop', 'add_to_cart', 'Added ' + bp.name + ' (' + fmt(bp.price) + ') to cart');
-          go(s, 2, 'Cart'); break;
+          go(s, 2); break;
         case 'addToCart':
-          var ap = getProduct(s.selectedProductId);
-          log(s, 'Product', 'add_to_cart', 'Added ' + ap.name + ' (' + fmt(ap.price) + ') to cart');
-          go(s, 2, 'Cart'); break;
+          go(s, 2); break;
         case 'toggleGiftBox':
           s.giftBox = !s.giftBox;
-          log(s, 'Cart', 'gift_box_toggle', 'Gift Box = ' + (s.giftBox?'ON (+৳80)':'OFF'));
+          saveActiveSession(s);
           render(); break;
         case 'proceedCheckout':
-          var tc = totals(s);
-          log(s, 'Cart', 'proceed_checkout', 'Item = ' + tc.prod.name + ' (' + fmt(tc.item) + '); GiftBox = ' + (s.giftBox?'ON':'OFF') + '; Total = ' + fmt(tc.total));
-          go(s, 3, 'Delivery'); break;
+          go(s, 3); break;
         case 'continuePayment':
-          log(s, 'Delivery', 'continue_payment', 'Delivery confirmed for ' + s.customer.name);
-          go(s, 4, 'Payment'); break;
+          go(s, 4); break;
         case 'completeOrder':
-          var to = totals(s);
-          log(s, 'Payment', 'complete_order', 'Item = ' + to.prod.name + ' (' + fmt(to.item) + '); Final = ' + fmt(to.total) + '; Budget = ' + (to.total>CONFIG.budget?'EXCEEDED':'WITHIN'));
-          go(s, 5, 'Confirmation'); break;
+          recordCompletedOrder(s);
+          go(s, 5); break;
         case 'startNewSession':
           startNewSession(s); break;
       }
@@ -1029,11 +1060,12 @@
         if(v){ view = v.dataset.view; render(); return; }
         var w = e.target.closest('.site-main');
         if(w && !e.target.closest('button, input, label, a, [data-action]')){
-          var s = sessions['A'];
+          var s = ensureSession('A');
           if(s && s.screen !== 5){
+            s.totalClicks = (s.totalClicks || 0) + 1;
             s.misclicks = (s.misclicks || 0) + 1;
-            var tag = e.target && e.target.tagName ? e.target.tagName.toLowerCase() : 'div';
-            log(s, 'Screen_' + s.screen, 'misclick', 'Wrong click on ' + tag);
+            saveActiveSession(s);
+            if(!blind) render();
           }
         }
       });
@@ -1043,6 +1075,7 @@
         if(!f) return;
         var s = ensureSession('A');
         s.customer[f.dataset.field] = f.value;
+        saveActiveSession(s);
       });
 
       render();
